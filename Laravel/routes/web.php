@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
+// トップ
+Route::get('top', 'ProductsController@index');
+// 出品画面(に遷移)
+Route::get('create_form','ProductsController@createForm');
+// 出品画面（処理）
+Route::get('product_create','ProductsController@productCreate');
+// 作品詳細ページ
+Route::get('detail/{id}','ProductsController@detail');
