@@ -17,7 +17,7 @@ class Users extends Migration
             $table->increments('id');
             $table->string('name',255);//255文字まで
             $table->string('email')->unique();
-            $table->string('pass',255);
+            $table->string('password',255);
             $table->string('bio',450);
             $table->string('image',255)->default('null.png');
             $table->timestamp('create_at')->useCurrent();

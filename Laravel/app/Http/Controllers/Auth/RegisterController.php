@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -70,4 +71,32 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    // 新規登録表示
+        public function register(Request $request) {
+            if($request->isMethod('post') ) {
+
+                // バリデーション
+                $request->validate([
+                    'name' => 'required',
+                    'email' => 'required | email | unique:users,email',
+                    'bio' => 'required',
+                    'password' => 'required | min:5 | confirmed',
+                    'password_confirmation' => 'required'
+                ]);
+
+                $user = new User;
+                $user->name = $request->input('name');
+                $user->email = $request->input('email');
+                $user->bio = $request->input('bio');
+                $user->password = Hash::make($request->input('password'));
+                // DBに保存
+                $user->save();
+
+                return redirect('top');
+            }
+        return view('author.register');
+        }
+
+
 }

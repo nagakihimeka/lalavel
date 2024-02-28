@@ -27,3 +27,15 @@ $(function () {
     $('.menu').toggleClass('active');
   });
 });
+
+
+// お気に入りボタン
+
+
+// 検索モーダル
+$('.modal-open').click(function () {
+  $('.modal_search').fadeIn();
+});
+$('.modal-close').click(function () {
+  $('.modal_search').fadeOut();
+});
