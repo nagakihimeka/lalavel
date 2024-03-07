@@ -17,11 +17,12 @@ class FavoriteController extends Controller
     $user_id = Auth::user()->id;
     $product = Product::find($id);
 
-    $favorite = \DB::table('product_user')->where('product_id',$id)->where('user_id',$user_id)->exists();
-
+  //中間テーブル更新
     $product->users()->sync($user_id);
 
-
+    //登録があるかチェック
+    //  $favorite = \DB::table('product_user')->where('product_id',$id)->where('user_id',$user_id)->exists();
+    //  $favorite = "芋";
     return redirect('top');
   }
 

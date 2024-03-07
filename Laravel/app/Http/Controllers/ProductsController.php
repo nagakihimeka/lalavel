@@ -12,7 +12,11 @@ class ProductsController extends Controller
 {
     public function index() {
         $products = Product::get();
-        return view('layouts.top',compact('products',));
+
+            //登録があるかチェック
+    $id = Auth::id();
+     $favorite = \DB::table('product_user')->where('user_id',$id)->exists();
+        return view('layouts.top',compact('products','favorite'));
     }
 
     public function createForm(Request $request) {

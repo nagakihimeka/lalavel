@@ -55,8 +55,5 @@ class User extends Authenticatable
         return (boolean) $this->favorites()->where('product_id',$id)->exits();
     }
 
-    //お気に入りしてるかどうか
-    public function is_Like($post_id) {
 
-    }
 }

@@ -21,7 +21,7 @@
               <span class="price">{{$product->price}}円</span>
             </div>
             <div class="post_favorite">
-              if()
+             
               <a href="product/{{$product->id}}/favorite">お気に入り</a>
 
               <a href="product/{{$product->id}}/unfavorite">お気に入りいりを解除</a>
