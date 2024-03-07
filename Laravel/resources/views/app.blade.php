@@ -101,6 +101,7 @@
           <input type="submit"  form="searchRequest" value="絞り込む"></input>
         </ul>
       </div>
+</form>
     </div>
 
   <header class="header">

@@ -15,12 +15,10 @@ use App\Http\Controllers\Auth\AuthController;
 //ログイン画面の表示
 Route::get('/',[AuthController::class,'showLogin'])->name('showLogin');
 //ログインの処理
-Route::get('/login',[AuthController::class,'login'
-])->name('login');
-Route::post('/login',[AuthController::class,'login'
-])->name('login');
+Route::get('/login','Auth\AuthController@login')->name('login');
+Route::post('/login','Auth\AuthController@login')->name('login');
 // トップ
-Route::get('top', 'ProductsController@index');
+Route::get('top', 'ProductsController@index')->name('top');
 // 作品詳細ページ
 Route::get('detail/{id}','ProductsController@detail')->name('detail');
 //出品者詳細ページ

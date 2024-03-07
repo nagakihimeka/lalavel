@@ -30,6 +30,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        return view('.top');
+        return redirect()->route('top');
     }
 }

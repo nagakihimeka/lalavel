@@ -6,7 +6,7 @@
   <ul>
     @foreach($products as $product)
     <li>
-      <a href="detail/{{$product->id}}">
+      <a href="{{ route('detail',['id' => $product->id])}}">
         <div class="product_image"><img src="{{asset ('image/' . $product->image) }}" alt={{$product->title}}></div>
         <div class="product_about">
           <p class="title">{{$product->title}}</p>

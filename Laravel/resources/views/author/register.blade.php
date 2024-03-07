@@ -2,7 +2,7 @@
 @section('content')
 <div class="register">
   <h2>新規登録</h2>
-  <form action="{{route('register')}}" method="post" class='register_form'>
+  <form action="{{route('register')}}" method="post" class='register_form' id="register_form">
     @csrf
     <div class="login_forms">
       @if($errors->has('name'))
@@ -41,7 +41,8 @@
         <input type="password" id="input_password_confirm" name="password_confirmation">
       </div>
     </div>
-    <button type="submit">登録する</button>
+    <input type="submit" form="register_form" value="登録する"></input>
   </form>
+  <button type="submit" form="register_form" value="">登録する</button>
 </div>
 @endsection
